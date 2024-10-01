@@ -5,9 +5,7 @@ import matter from "gray-matter";
 /**
  *Extract front matter from a Markdown file by reading the first 10 lines.
  * */
-export function getFrontMatter(
-  s: PathLike,
-): Promise<{ [key: string]: string }> {
+export function getFrontMatter(s: PathLike): Promise<Record<string, string>> {
   return new Promise((resolve, reject) => {
     try {
       const lineReader = createInterface({
@@ -26,7 +24,7 @@ export function getFrontMatter(
       });
 
       lineReader.on("close", () => {
-        const { data } = matter(chunk);
+        const { data } = matter(chunk.trim());
         resolve(data);
       });
     } catch (e) {
