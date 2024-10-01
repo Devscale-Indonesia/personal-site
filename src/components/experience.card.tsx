@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const style = tv({
-  base: "border border-[#DEDEDE] border-l border-r-0 border-b-0 border-t-0 pl-8",
+  base: "h-full w-full flex relative ",
 });
 
 type TCard = VariantProps<typeof style>;
@@ -19,22 +19,48 @@ interface Props {
 export const PresentExperienceCard = (props: Props) => {
   return (
     <div {...props} className={twMerge(style({ ...props }), props.className)}>
-      <div className="flex flex-col gap-3">
+      <div>
+        <div className=" bg-[#DEDEDE] w-[1px] h-full"></div>
+        <div className="absolute w-3 h-3 rounded-full z-10 bg-blackColor -left-1.5 top-0"></div>
+      </div>
+      <div className="flex flex-col gap-3 pl-8 py-3">
         <div className="flex justify-between items-center">
-          <div className="flex flex-col gap-2">
-            <div className="flex gap-4">
-              <h4>{props.company}</h4>
-              <div className="bg-blackColor rounded-full px-5 flex items-center justify-center">
-                <p className="text-white uppercase text-sm">Present</p>
-              </div>
-            </div>
+          <div className="flex flex-col">
+            <h4 className="flex gap-4 font-semibold">
+              {props.company}{" "}
+              <span className="font-normal text-white uppercase text-sm bg-blackColor rounded-full px-5 flex items-center justify-center">
+                Present
+              </span>
+            </h4>
             <p className="text-[#979797]">{props.position}</p>
           </div>
           <p className="text-[#979797] uppercase">{props.period}</p>
         </div>
-        <p className="text-mediumGray">{props.description}</p>
-        <p className="text-mediumGray">Key Responsibilites:</p>
-        {props.children}
+
+        <div className="space-y-1">
+          <p className="text-mediumGray">{props.description}</p>
+          <p className="text-mediumGray">Key Responsibilites:</p>
+          {props.children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const PastExperienceCard = (props: Props) => {
+  return (
+    <div {...props} className={twMerge(style({ ...props }), props.className)}>
+      <div>
+        <div className=" bg-[#DEDEDE] w-[1px] h-full"></div>
+        <div className="absolute w-3 h-3 rounded-full z-10 bg-[#DEDEDE] -left-1.5 top-1"></div>
+      </div>
+
+      <div className="flex justify-between items-center w-full pl-8 py-3">
+        <div className="flex flex-col">
+          <h4 className="font-semibold">{props.company}</h4>
+          <p className="text-[#979797]">{props.position}</p>
+        </div>
+        <p className="text-[#979797] uppercase">{props.period}</p>
       </div>
     </div>
   );
