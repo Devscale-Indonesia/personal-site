@@ -5,7 +5,11 @@ export default async function Blog() {
 
   return (
     <>
-      <h1 className="text-4xl">Blog</h1>
+      <h1 className="text-4xl mb-3 font-semibold">Blog</h1>
+      <p className="text-mediumGray">
+        Stay updated with my insights on industry trends, personal experiences,
+        and more.
+      </p>
       <ul>
         {filenames.map((title) => (
           <li key={title}>{title}</li>
