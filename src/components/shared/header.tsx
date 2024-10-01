@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="fixed w-screen top-0 z-50 border-b px-16 py-6 bg-white flex justify-between items-center">
+    <header className="fixed w-screen top-0 z-50 px-16 py-6 bg-bodyGray flex justify-between items-center">
       <div className="flex items-center gap-16">
         <Link href="/">
           <h4 className="text-blackColor font-bold ">SimpFolio</h4>

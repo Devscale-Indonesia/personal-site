@@ -17,6 +17,7 @@ const config: Config = {
         lightGray: "#BABABA",
         grayishBlue: "#F2F6F9",
         silver: "#DEDEDE",
+        bodyGray: "#FCFCFC",
       },
     },
   },
