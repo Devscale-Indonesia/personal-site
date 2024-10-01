@@ -3,7 +3,7 @@ import { createInterface } from "node:readline";
 import matter from "gray-matter";
 
 /**
- *Extracts front matter from a Markdown file by reading the first 10 lines.
+ *Extract front matter from a Markdown file by reading the first 10 lines.
  * */
 export function getFrontMatter(
   s: PathLike,
