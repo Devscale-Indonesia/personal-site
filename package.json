@@ -11,7 +11,12 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.13",
+    "@types/mdx": "^2.0.13",
     "next": "14.2.13",
+    "next-mdx-remote": "^5.0.0",
     "react": "^18",
     "react-dom": "^18",
     "remove": "^0.1.5"
