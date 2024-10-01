@@ -1,5 +1,5 @@
 ---
-title: Enhancing Security in Next.js Applications
+title: Enhancing Security in Next.js Applications with very very long title so the ui overflow
 date: 12/november/2024
 tags: Security, Cybersecurity, Information Security"
 ---

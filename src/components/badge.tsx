@@ -20,7 +20,7 @@ const style = tv({
   },
 });
 
-type TBadge = VariantProps<typeof style>;
+export type TBadge = VariantProps<typeof style>;
 type Props = TBadge & ComponentPropsWithRef<"span">;
 
 export const Badge = (props: Props) => {
