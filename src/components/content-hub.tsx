@@ -1,8 +1,8 @@
 "use client";
-
-import { Badge } from "@/components/badge";
+import { Badge, TBadge } from "@/components/badge";
 import { TagCloud } from "@/components/tag-cloud";
 import { BlogPostGrid } from "./blog-post-grid";
+import { useMemo, useState } from "react";
 
 export type TMetadata = {
   title: string;
@@ -15,40 +15,64 @@ export type ContentHubProps = {
 };
 
 export const ContentHub = ({ metadatas }: ContentHubProps) => {
-  const tags = new Set<string>();
-
-  for (const metadata of metadatas) {
-    const commaSpearatedTags = metadata.tags;
-    for (const tag of commaSpearatedTags.split(",")) tags.add(tag);
-  }
+  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const tags = useMemo(() => {
+    const tagSet = new Set<string>();
+    for (const metadata of metadatas) {
+      const commaSeparatedTags = metadata.tags;
+      for (const tag of commaSeparatedTags.split(",")) tagSet.add(tag);
+    }
+    return Array.from(tagSet);
+  }, [metadatas]);
 
   return (
     <>
       <TagCloud className="mb-12">
-        {Array.from(tags).map((tag) => (
+        {tags.map((tag) => (
           <button
             key={tag}
             onClick={(e) => {
-              console.log(e);
-              // const element = e.currentTarget.firstElementChild!;
-              // const variant = element.getAttribute(
-              //   "variant",
-              // ) as TBadge["variant"];
-              //
-              // if (variant === "inactive") {
-              //   element.setAttribute("variant", "active");
-              // } else {
-              //   element.setAttribute("variant", "inactive");
-              // }
+              const element = e.currentTarget.firstElementChild!;
+              const tag = element.textContent!;
+              const variant = element.getAttribute(
+                "variant",
+              ) as TBadge["variant"];
+
+              if (variant === "inactive") {
+                // Active
+                setActiveTags((prev) => [...prev, tag]);
+              } else {
+                // Inactive
+                setActiveTags((prev) =>
+                  prev.filter((prevTag) => prevTag !== tag),
+                );
+              }
             }}
           >
-            <Badge key={tag} variant="inactive" size="md">
+            <Badge
+              key={tag}
+              variant={activeTags.includes(tag) ? "active" : "inactive"}
+              size="md"
+            >
               {tag}
             </Badge>
           </button>
         ))}
       </TagCloud>
-      <BlogPostGrid metadatas={metadatas} />
+      <BlogPostGrid
+        metadatas={
+          activeTags.length === 0
+            ? metadatas
+            : metadatas.filter((metadata) => {
+                const tags = metadata.tags.split(",");
+                const numberOfActiveTags = activeTags.filter(
+                  (activeTag) => tags.indexOf(activeTag) !== -1,
+                ).length;
+                console.log(numberOfActiveTags);
+                return numberOfActiveTags > 0;
+              })
+        }
+      />
     </>
   );
 };
