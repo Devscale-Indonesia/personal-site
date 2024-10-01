@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { tv, VariantProps } from "tailwind-variants";
 
 const style = tv({
-  base: "rounded-md text-sm inline-block",
+  base: "rounded-md text-xs inline-block",
   variants: {
     variant: {
       inactive: "bg-grayishBlue text-darkGray",

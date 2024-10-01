@@ -1,19 +1,20 @@
 "use client";
 
-import type { PropsWithChildren } from "react";
+import type { ComponentPropsWithRef, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
+import { tv, VariantProps } from "tailwind-variants";
 
-export type TagCloudProps = {
-  className?: string;
-};
+const style = tv({
+  base: "flex flex-wrap w-full gap-3",
+});
 
-export const TagCloud = ({
-  children,
-  className,
-}: PropsWithChildren<TagCloudProps>) => {
+type TTagCloud = VariantProps<typeof style>;
+export type TagCloudProps = TTagCloud & ComponentPropsWithRef<"div">;
+
+export const TagCloud = (props: PropsWithChildren<TagCloudProps>) => {
   return (
-    <div className={twMerge("flex flex-wrap w-full gap-3", className)}>
-      {children}
+    <div {...props} className={twMerge(style({ ...props }))}>
+      {props.children}
     </div>
   );
 };
