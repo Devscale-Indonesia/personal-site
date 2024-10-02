@@ -6,6 +6,8 @@ import { join } from "node:path";
 import { cwd } from "node:process";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 
+import "@/styles/code-line-number.css";
+
 export type SlugBlogProps = {
   params: {
     slug: string;
