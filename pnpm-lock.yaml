@@ -37,6 +37,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
+      reading-time-estimator:
+        specifier: ^1.11.0
+        version: 1.11.0
       remove:
         specifier: ^0.1.5
         version: 0.1.5
@@ -7124,6 +7127,12 @@ packages:
       }
     engines: { node: ">=8.10.0" }
 
+  reading-time-estimator@1.11.0:
+    resolution:
+      {
+        integrity: sha512-2813WXSxCPsDvgrYq+cPBI4gGqgmtKlo62rpI0mwnhrMfZJIqbDfOeidr9Y36OruDesQGmYA9DkVRmvsBbv2DA==,
+      }
+
   recast@0.23.9:
     resolution:
       {
@@ -13685,6 +13694,8 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
+
+  reading-time-estimator@1.11.0: {}
 
   recast@0.23.9:
     dependencies:

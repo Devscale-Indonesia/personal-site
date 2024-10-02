@@ -24,6 +24,7 @@
     "next-mdx-remote": "^5.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "reading-time-estimator": "^1.11.0",
     "remove": "^0.1.5",
     "tailwind-merge": "^2.5.2",
     "tailwind-variants": "^0.2.1"
