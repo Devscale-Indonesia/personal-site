@@ -7,6 +7,7 @@ import { ComponentPropsWithRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { tv, VariantProps } from "tailwind-variants";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const style = tv({
   base: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
@@ -19,19 +20,19 @@ export type BlogPostGridProps = {
   ComponentPropsWithRef<"div">;
 
 export const BlogPostGrid = (props: BlogPostGridProps) => {
+  const pathname = usePathname();
+
   return (
     <div {...props} className={twMerge(style({ ...props }))}>
       {props.metadatas.map((metadata) => {
         const { title } = metadata;
         const tagCollection = metadata.tags.split(",");
         const date = metadata.date.replaceAll("/", " ");
-        const url = new URL(window.location.origin);
-
-        url.pathname = "/blog/".concat(metadata.url);
+        const url = pathname.concat(`/${metadata.url}`);
 
         return (
           <Link
-            href={url.href}
+            href={url}
             key={title}
             className="w-fit block mx-auto sm:mx-none"
           >
