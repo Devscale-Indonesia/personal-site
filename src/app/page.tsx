@@ -1,5 +1,6 @@
-import { BlogCard } from "@/components/blog.card";
-import { BlogTag } from "@/components/blog.tag";
+import { BlogPostGrid } from "@/components/blog-post-grid";
+import type { TMetadata } from "@/components/content-hub";
+import { getContentDocs } from "@/utility/lib/get-content-docs";
 import { Button } from "@/components/button";
 import {
   PastExperienceCard,
@@ -9,7 +10,8 @@ import { ProjectCard } from "@/components/project.card";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const metadatas = (await getContentDocs(6)) as TMetadata[];
   return (
     <div className="flex justify-center items-center bg-bodyGray">
       <div className="max-w-[1080px] w-full mt-[5rem] p-16">
@@ -188,52 +190,7 @@ export default function Home() {
                 </p>
               </Link>
             </div>
-            <div className="grid grid-cols-3 gap-6">
-              <BlogCard
-                date="10 September 2024"
-                title="Best Practices for Optimizing Nextjs Performance"
-              >
-                <BlogTag tag="Performance Optimization" />{" "}
-                <BlogTag tag="Web Performance" />{" "}
-                <BlogTag tag="Frontend Development" />
-              </BlogCard>
-              <BlogCard
-                date="5 October 2024"
-                title="BImplementing SEO Strategies in Nextjs Projects"
-              >
-                <BlogTag tag="SEO" />{" "}
-                <BlogTag tag="Search Engine Optimization" />{" "}
-                <BlogTag tag="Digital Marketing" />
-              </BlogCard>
-              <BlogCard
-                date="20 October 2024"
-                title="Data Management Techniques for Scalable Nextjs App"
-              >
-                <BlogTag tag="Data Management" /> <BlogTag tag="Scalability" />{" "}
-                <BlogTag tag="Backend Development" />
-              </BlogCard>
-              <BlogCard
-                date="12 November 2024"
-                title="Enhancing Security in Nextjs Applications"
-              >
-                <BlogTag tag="Security" /> <BlogTag tag="Cybersecurity" />{" "}
-                <BlogTag tag="Information Security" />
-              </BlogCard>
-              <BlogCard
-                date="25 March 2025"
-                title="Optimizing Performance in React Native"
-              >
-                <BlogTag tag="Performance" /> <BlogTag tag="React Native" />{" "}
-                <BlogTag tag="App Optimization" />
-              </BlogCard>
-              <BlogCard
-                date="8 September 2025"
-                title="Data Management Techniques for Scalable Nextjs App"
-              >
-                <BlogTag tag="UI Design" /> <BlogTag tag="Flutter" />{" "}
-                <BlogTag tag="User Experience" />
-              </BlogCard>
-            </div>
+            <BlogPostGrid metadatas={metadatas} />
           </div>
         </div>
       </div>
