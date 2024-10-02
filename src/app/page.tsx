@@ -137,6 +137,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold">Projects</h2>
             <div className="grid grid-cols-3 gap-x-5 gap-y-6">
               <ProjectCard
+                src="/assets/icon-project-1.webp"
                 title="Finance Tracker"
                 description="An App for managing personal finances and budgeting"
               >
@@ -144,6 +145,7 @@ export default function Home() {
                 <DocsTag href="" />
               </ProjectCard>
               <ProjectCard
+                src="/assets/icon-project-2.webp"
                 title="Recipe Manager"
                 description="An App for storing and sharing favorite recipes"
               >
@@ -151,6 +153,7 @@ export default function Home() {
                 <DocsTag href="" />
               </ProjectCard>
               <ProjectCard
+                src="/assets/icon-project-3.webp"
                 title="Fitness Tracker"
                 description="An App for tracking workouts and health goals."
               >
@@ -158,6 +161,7 @@ export default function Home() {
                 <DocsTag href="" />
               </ProjectCard>
               <ProjectCard
+                src="/assets/icon-project-4.webp"
                 title="Travel Planner"
                 description="An App for planning trips and exploring destinations."
               >
@@ -165,6 +169,7 @@ export default function Home() {
                 <DocsTag href="" />
               </ProjectCard>
               <ProjectCard
+                src="/assets/icon-project-5.webp"
                 title="Task Manager"
                 description="An App for organizing tasks and increasing productivity."
               >

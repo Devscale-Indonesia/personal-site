@@ -11,6 +11,7 @@ type TCard = VariantProps<typeof style>;
 interface Props extends TCard, React.ComponentPropsWithRef<"div"> {}
 
 interface Props {
+  src: string;
   title: string;
   description: string;
 }
@@ -20,7 +21,7 @@ export const ProjectCard = (props: Props) => {
     <div {...props} className={twMerge(style({ ...props }), props.className)}>
       <div className="flex flex-col gap-2">
         <Image
-          src={`/assets/icon-project-1.webp`}
+          src={props.src}
           width={500}
           height={500}
           alt="project icon"
