@@ -5,7 +5,6 @@ import {
   PastExperienceCard,
   PresentExperienceCard,
 } from "@/components/experience.card";
-import { KeyList } from "@/components/key.list";
 import { ProjectCard } from "@/components/project.card";
 import { DocsTag, RepositoryTag, WebsiteTag } from "@/components/project.tag";
 import Image from "next/image";
@@ -95,12 +94,13 @@ export default function Home() {
                 position="Chief Usability Analyst"
                 period="Aug 2024"
                 description="As the Chief Usability Analyst, leads the charge in optimizing user experiences through intuitive design and data-driven strategies. With a focus on balancing functionality and user satisfaction, they work closely with cross-functional teams to streamline digital interactions, ensuring that every touchpoint is seamless and accessible. Their innovative approach and commitment to continuous improvement drive measurable results, enhancing both user engagement and business outcomes."
-              >
-                <KeyList desc="Spearhead usability testing and research to identify pain points and areas for improvement." />
-                <KeyList desc="Collaborate with designers, developers, and product managers to implement user-centric solutions." />
-                <KeyList desc="Leverage user feedback and analytics to refine workflows and interface designs." />
-                <KeyList desc="Advocate for best practices in usability, acccessibility, and design consistency." />
-              </PresentExperienceCard>
+                keys={[
+                  "Spearhead usability testing and research to identify pain points and areas for improvement.",
+                  "Collaborate with designers, developers, and product managers to implement user-centric solutions.",
+                  "Leverage user feedback and analytics to refine workflows and interface designs.",
+                  "Advocate for best practices in usability, acccessibility, and design consistency.",
+                ]}
+              />
               <PastExperienceCard
                 company="Stehr, Flatley, and Doyle"
                 position="International Quality Agent"

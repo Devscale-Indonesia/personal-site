@@ -14,6 +14,7 @@ interface Props {
   position: string;
   period: string;
   description?: string;
+  keys?: string[];
 }
 
 export const PresentExperienceCard = (props: Props) => {
@@ -40,7 +41,11 @@ export const PresentExperienceCard = (props: Props) => {
         <div className="space-y-1">
           <p className="text-mediumGray">{props.description}</p>
           <p className="text-mediumGray">Key Responsibilites:</p>
-          {props.children}
+          {props.keys?.map((key, index) => (
+            <p key={index} className="text-mediumGray">
+              &#8226; {key}
+            </p>
+          ))}
         </div>
       </div>
     </div>
