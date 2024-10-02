@@ -1,101 +1,186 @@
+import { BlogPostGrid } from "@/components/blog-post-grid";
+import { Button } from "@/components/button";
+import type { TMetadata } from "@/components/content-hub";
+import {
+  PastExperienceCard,
+  PresentExperienceCard,
+} from "@/components/experience.card";
+import { KeyList } from "@/components/key.list";
+import { ProjectCard } from "@/components/project.card";
+import { DocsTag, RepositoryTag, WebsiteTag } from "@/components/project.tag";
+import { getContentDocs } from "@/utility/lib/get-content-docs";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+export default async function Home() {
+  const metadatas = (await getContentDocs(6)) as TMetadata[];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="flex justify-center items-center bg-bodyGray">
+      <div className="max-w-[1080px] w-full mt-[5rem] p-16">
+        <div className="flex flex-col gap-20">
+          <div className=" flex flex-col gap-12">
+            <div className="max-w-[850px]">
+              <h1 className="text-lightGray font-semibold">
+                A <span className="text-blackColor">Minimalist</span> Portfolio
+                Template for Developer
+              </h1>
+            </div>
+            <div className="flex flex-col gap-8">
+              <div className="flex items-center gap-5">
+                <Image
+                  src={`/assets/profile.webp`}
+                  width={500}
+                  height={500}
+                  alt="profile icon"
+                  className="w-[120px] h-[120px] border rounded-full"
+                />
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col">
+                    <h2 className="text-blackColor font-semibold">
+                      Roberta Deckow
+                    </h2>
+                    <p className="text-mediumGray">Chief Usability Analyst</p>
+                  </div>
+                  <div className="flex gap-2.5">
+                    <div className="social-icon">
+                      <Image
+                        src={`/assets/x-icon.webp`}
+                        width={500}
+                        height={500}
+                        alt="x icon"
+                      />
+                    </div>
+                    <div className="social-icon">
+                      <Image
+                        src={`/assets/github-icon.webp`}
+                        width={500}
+                        height={500}
+                        alt="github icon"
+                        className="scale-125"
+                      />
+                    </div>
+                    <div className="social-icon pb-3">
+                      <Image
+                        src={`/assets/stackoverflow-icon.webp`}
+                        width={500}
+                        height={500}
+                        alt="stackoverflow icon"
+                        className="scale-110"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h5 className="text-mediumGray max-w-[600px]">
+                Simpfolio offers a{" "}
+                <span className="font-bold">sleek design for developers</span>{" "}
+                to showcase their work effectively. Whether you&apos;re a{" "}
+                <span className="font-bold">
+                  coder, designer, or tech enthusiast
+                </span>
+                , this template helps you display your projects with style.
+              </h5>
+              <div className="flex items-center gap-5">
+                <Button className="space-x-3">
+                  <span className="text-[#24D982]">&#8226;</span>
+                  <span>Let&apos;s Talk With Me</span>
+                </Button>
+                <Button variant="secondary">Find Out More</Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5">
+            <h3 className="font-semibold">Experience</h3>
+            <div>
+              <PresentExperienceCard
+                company="Acme.inc"
+                position="Chief Usability Analyst"
+                period="Aug 2024"
+                description="As the Chief Usability Analyst, leads the charge in optimizing user experiences through intuitive design and data-driven strategies. With a focus on balancing functionality and user satisfaction, they work closely with cross-functional teams to streamline digital interactions, ensuring that every touchpoint is seamless and accessible. Their innovative approach and commitment to continuous improvement drive measurable results, enhancing both user engagement and business outcomes."
+              >
+                <KeyList desc="Spearhead usability testing and research to identify pain points and areas for improvement." />
+                <KeyList desc="Collaborate with designers, developers, and product managers to implement user-centric solutions." />
+                <KeyList desc="Leverage user feedback and analytics to refine workflows and interface designs." />
+                <KeyList desc="Advocate for best practices in usability, acccessibility, and design consistency." />
+              </PresentExperienceCard>
+              <PastExperienceCard
+                company="Stehr, Flatley, and Doyle"
+                position="International Quality Agent"
+                period="May 2023"
+              />
+              <PastExperienceCard
+                company="Jacobi, Zemlak and Mayer"
+                position="District Quality Officer"
+                period="Aug 2020 - May 2024"
+              />
+              <PastExperienceCard
+                company="Champlin LLC"
+                position="National Identity Specialist"
+                period="Aug 2016 - Jul 2020"
+              />
+              <PastExperienceCard
+                company="Keeling - Price"
+                position="Chief Marketing Administrator"
+                period="Aug 2011 - July 2016"
+              />
+              <PastExperienceCard
+                company="Quitzon - Swift"
+                position="Global Directive Assistant"
+                period="Aug 2000 - Aug 2011"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            <h2 className="text-2xl font-semibold">Projects</h2>
+            <div className="grid grid-cols-3 gap-x-5 gap-y-6">
+              <ProjectCard
+                title="Finance Tracker"
+                description="An App for managing personal finances and budgeting"
+              >
+                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
+                <DocsTag href="" />
+              </ProjectCard>
+              <ProjectCard
+                title="Recipe Manager"
+                description="An App for storing and sharing favorite recipes"
+              >
+                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
+                <DocsTag href="" />
+              </ProjectCard>
+              <ProjectCard
+                title="Fitness Tracker"
+                description="An App for tracking workouts and health goals."
+              >
+                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
+                <DocsTag href="" />
+              </ProjectCard>
+              <ProjectCard
+                title="Travel Planner"
+                description="An App for planning trips and exploring destinations."
+              >
+                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
+                <DocsTag href="" />
+              </ProjectCard>
+              <ProjectCard
+                title="Task Manager"
+                description="An App for organizing tasks and increasing productivity."
+              >
+                <WebsiteTag href="" /> <RepositoryTag href="" />
+              </ProjectCard>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-9">
+            <div className="flex justify-between">
+              <h2 className="text-2xl font-semibold">Blog</h2>
+              <p className="text-mediumGray">See My Another Blog &#10095;</p>
+            </div>
+            <BlogPostGrid metadatas={metadatas} />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }

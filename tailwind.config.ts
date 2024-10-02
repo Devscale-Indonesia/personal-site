@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindTypographyPlugin from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -11,9 +12,16 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        blackColor: "#2F2F2F",
+        darkGray: "#525252",
+        mediumGray: "#747474",
+        lightGray: "#BABABA",
+        grayishBlue: "#F2F6F9",
+        silver: "#DEDEDE",
+        bodyGray: "#FCFCFC",
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindTypographyPlugin],
 };
 export default config;
