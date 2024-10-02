@@ -77,8 +77,12 @@ export default function Home() {
                 , this template helps you display your projects with style.
               </h5>
               <div className="flex items-center gap-5">
-                <Button className="space-x-3">
-                  <span className="text-[#24D982]">&#8226;</span>
+                <Button className="flex items-center gap-3">
+                  <div className="relative inline-flex">
+                    <div className="w-2 h-2 bg-greenColor rounded-full"></div>
+                    <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-ping"></div>
+                    <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-pulse"></div>
+                  </div>
                   <span>Let&apos;s Talk With Me</span>
                 </Button>
                 <Button variant="secondary">Find Out More</Button>
