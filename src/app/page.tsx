@@ -6,7 +6,6 @@ import {
   PresentExperienceCard,
 } from "@/components/experience.card";
 import { ProjectCard } from "@/components/project.card";
-import { DocsTag, RepositoryTag, WebsiteTag } from "@/components/project.tag";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -141,41 +140,42 @@ export default function Home() {
                 src="/assets/icon-project-1.webp"
                 title="Finance Tracker"
                 description="An App for managing personal finances and budgeting"
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
                 src="/assets/icon-project-2.webp"
                 title="Recipe Manager"
                 description="An App for storing and sharing favorite recipes"
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
                 src="/assets/icon-project-3.webp"
                 title="Fitness Tracker"
                 description="An App for tracking workouts and health goals."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
                 src="/assets/icon-project-4.webp"
                 title="Travel Planner"
                 description="An App for planning trips and exploring destinations."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
+
               <ProjectCard
                 src="/assets/icon-project-5.webp"
                 title="Task Manager"
                 description="An App for organizing tasks and increasing productivity."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+              />
             </div>
           </div>
 
