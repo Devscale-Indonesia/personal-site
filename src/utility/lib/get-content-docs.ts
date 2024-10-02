@@ -9,7 +9,9 @@ export async function getContentDocs(limit?: number) {
   );
   const metadataCollectionPromises = Promise.all(
     filenames.map((filename) =>
-      getFrontMatter(join(cwd(), "content", filename)),
+      getFrontMatter(join(cwd(), "content", filename)).then((frontmatter) =>
+        Object.assign(frontmatter, { url: filename.replace(".md", "") }),
+      ),
     ),
   );
 

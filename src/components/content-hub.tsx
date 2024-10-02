@@ -8,6 +8,7 @@ export type TMetadata = {
   title: string;
   date: string;
   tags: string;
+  url: string;
 };
 
 export type ContentHubProps = {
@@ -68,7 +69,6 @@ export const ContentHub = ({ metadatas }: ContentHubProps) => {
                 const numberOfActiveTags = activeTags.filter(
                   (activeTag) => tags.indexOf(activeTag) !== -1,
                 ).length;
-                console.log(numberOfActiveTags);
                 return numberOfActiveTags > 0;
               })
         }

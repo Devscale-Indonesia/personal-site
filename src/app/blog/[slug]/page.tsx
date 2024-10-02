@@ -15,8 +15,10 @@ export default async function Page({ params: { slug } }: BlogProps) {
 
   const { content } = await compileMDX({
     source: fileContent,
+    options: {
+      parseFrontmatter: true,
+    },
   });
 
-  console.log(fileContent);
   return content;
 }

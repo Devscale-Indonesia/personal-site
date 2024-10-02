@@ -6,6 +6,8 @@ import type { TMetadata } from "@/components/content-hub";
 import { ComponentPropsWithRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { tv, VariantProps } from "tailwind-variants";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const style = tv({
   base: "grid grid-cols-3 gap-6",
@@ -19,22 +21,31 @@ export type BlogPostGridProps = {
 
 export const BlogPostGrid = (props: BlogPostGridProps) => {
   return (
-    <div {...props} className={twMerge(style({ ...props }))}>
-      {props.metadatas.map((metadata) => {
-        const { title } = metadata;
-        const tagCollection = metadata.tags.split(",");
-        const date = metadata.date.replaceAll("/", " ");
+    <motion.div layout>
+      <AnimatePresence>
+        <div {...props} className={twMerge(style({ ...props }))}>
+          {props.metadatas.map((metadata) => {
+            const { title } = metadata;
+            const tagCollection = metadata.tags.split(",");
+            const date = metadata.date.replaceAll("/", " ");
+            const url = new URL(window.location.origin);
 
-        return (
-          <BlogCard date={date} title={title} key={title}>
-            {tagCollection.map((tag) => (
-              <Badge key={`${title}-${tag}`} variant="inactive" size="sm">
-                {tag}
-              </Badge>
-            ))}
-          </BlogCard>
-        );
-      })}
-    </div>
+            url.pathname = "/blog/".concat(metadata.url);
+
+            return (
+              <Link href={url.href} key={title}>
+                <BlogCard date={date} title={title}>
+                  {tagCollection.map((tag) => (
+                    <Badge key={`${title}-${tag}`} variant="inactive" size="sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </BlogCard>
+              </Link>
+            );
+          })}
+        </div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
