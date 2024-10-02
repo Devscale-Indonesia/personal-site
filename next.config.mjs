@@ -6,6 +6,7 @@ const nextConfig = {
   transpilePackages: ["next-mdx-remote"],
   experimental: {
     mdxRs: true,
+    instrumentationHook: true,
   },
 };
 
