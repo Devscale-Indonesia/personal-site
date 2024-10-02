@@ -87,9 +87,6 @@ importers:
       prettier:
         specifier: 3.3.3
         version: 3.3.3
-      storybook:
-        specifier: 8.3.4
-        version: 8.3.4
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.13
