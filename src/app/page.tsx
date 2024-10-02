@@ -8,6 +8,7 @@ import {
 import { ProjectCard } from "@/components/project.card";
 import { DocsTag, RepositoryTag, WebsiteTag } from "@/components/project.tag";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -181,7 +182,11 @@ export default function Home() {
           <div className="flex flex-col gap-5">
             <div className="flex justify-between">
               <h2 className="text-2xl font-semibold">Projects</h2>
-              <p className="text-mediumGray">See My Another Blog &#10095;</p>
+              <Link href="/blog">
+                <p className="text-mediumGray hover:underline">
+                  See My Another Blog &#10095;
+                </p>
+              </Link>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <BlogCard
