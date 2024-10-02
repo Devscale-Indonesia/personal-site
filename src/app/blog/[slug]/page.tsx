@@ -20,5 +20,10 @@ export default async function Page({ params: { slug } }: BlogProps) {
     },
   });
 
-  return content;
+  return (
+    <>
+      <h1>TEST TEST</h1>
+      {content}
+    </>
+  );
 }

@@ -4,6 +4,8 @@ date: "25/march/2025"
 tags: "Performance Optimization, React Native, App Optimization"
 ---
 
+# Hello World
+
 Performance optimization in React Native apps involves multiple strategies to enhance user experience. Techniques such as lazy loading, minimizing re-renders, and using native modules can significantly improve the responsiveness of your application. Understanding the performance bottlenecks in your app is the first step towards effective optimization.
 
 ```javascript
