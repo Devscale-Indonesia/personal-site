@@ -1,6 +1,6 @@
 import { BlogPostGrid } from "@/components/blog-post-grid";
 import type { TMetadata } from "@/components/content-hub";
-import { getContentDocs } from "@/utility/lib/get-content-docs";
+import { getContentDocs } from "@/libs/get-content-docs";
 import { Button } from "@/components/button";
 import { ExperienceCard } from "@/components/experience.card";
 import { ProjectCard } from "@/components/project.card";

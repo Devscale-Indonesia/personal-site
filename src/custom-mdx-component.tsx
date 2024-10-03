@@ -1,7 +1,7 @@
 import { MDXComponents } from "mdx/types";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { getSyntax } from "@/utility/lib/get-syntax";
+import { getSyntax } from "@/libs/get-syntax";
 import { CSSProperties } from "react";
 
 const theme: { [key: string]: CSSProperties } = atomOneDark;
