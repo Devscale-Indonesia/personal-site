@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { cwd } from "node:process";
-import { getFrontMatter } from "@/utility/lib/get-front-matter";
-import { readContent } from "@/utility/read-content";
+import { getFrontMatter } from "@/libs/get-front-matter";
+import { readContent } from "@/utils/read-content";
 
 export async function getContentDocs(limit?: number) {
   const filenames = await readContent().then((filenames) =>

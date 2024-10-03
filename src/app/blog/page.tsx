@@ -1,5 +1,5 @@
 import { ContentHub, TMetadata } from "@/components/content-hub";
-import { getContentDocs } from "@/utility/lib/get-content-docs";
+import { getContentDocs } from "@/libs/get-content-docs";
 
 export default async function Blog() {
   const metadatas = (await getContentDocs()) as Array<TMetadata>;

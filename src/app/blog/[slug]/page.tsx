@@ -3,9 +3,9 @@ import { cwd } from "node:process";
 
 import "@/styles/code-line-number.css";
 
-import { readContent } from "@/utility/read-content";
+import { readContent } from "@/utils/read-content";
 import Link from "next/link";
-import { getDoc } from "@/utility/lib/get-doc";
+import { getDoc } from "@/libs/get-doc";
 
 export type SlugBlogProps = {
   params: {
