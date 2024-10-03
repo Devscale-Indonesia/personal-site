@@ -1,6 +1,5 @@
 "use client";
 import { Badge, TBadge } from "@/components/badge";
-import { TagCloud } from "@/components/tag-cloud";
 import { BlogPostGrid } from "./blog-post-grid";
 import { useMemo, useState } from "react";
 
@@ -28,7 +27,7 @@ export const ContentHub = ({ metadatas }: ContentHubProps) => {
 
   return (
     <>
-      <TagCloud className="mb-12">
+      <div className="flex flex-wrap w-full gap-3 mb-12">
         {tags.map((tag) => (
           <button
             key={tag}
@@ -38,12 +37,9 @@ export const ContentHub = ({ metadatas }: ContentHubProps) => {
               const variant = element.getAttribute(
                 "variant",
               ) as TBadge["variant"];
-
               if (variant === "inactive") {
-                // Active
                 setActiveTags((prev) => [...prev, tag]);
               } else {
-                // Inactive
                 setActiveTags((prev) =>
                   prev.filter((prevTag) => prevTag !== tag),
                 );
@@ -59,7 +55,7 @@ export const ContentHub = ({ metadatas }: ContentHubProps) => {
             </Badge>
           </button>
         ))}
-      </TagCloud>
+      </div>
       <BlogPostGrid
         metadatas={
           activeTags.length === 0
