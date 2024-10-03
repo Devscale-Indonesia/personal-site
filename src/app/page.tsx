@@ -2,16 +2,117 @@ import { BlogPostGrid } from "@/components/blog-post-grid";
 import type { TMetadata } from "@/components/content-hub";
 import { getContentDocs } from "@/utility/lib/get-content-docs";
 import { Button } from "@/components/button";
-import {
-  PastExperienceCard,
-  PresentExperienceCard,
-} from "@/components/experience.card";
+import { ExperienceCard } from "@/components/experience.card";
 import { ProjectCard } from "@/components/project.card";
 import Image from "next/image";
 import Link from "next/link";
 
+const dummyExperience = [
+  {
+    company: "Acme.inc",
+    position: "Chief Usability Analyst",
+    startPeriod: "Aug 2024",
+    description:
+      "As the Chief Usability Analyst, leads the charge in optimizing user experiences through intuitive design and data-driven strategies. With a focus on balancing functionality and user satisfaction, they work closely with cross-functional teams to streamline digital interactions, ensuring that every touchpoint is seamless and accessible. Their innovative approach and commitment to continuous improvement drive measurable results, enhancing both user engagement and business outcomes.",
+    keys: [
+      "Spearhead usability testing and research to identify pain points and areas for improvement.",
+      "Collaborate with designers, developers, and product managers to implement user-centric solutions.",
+      "Leverage user feedback and analytics to refine workflows and interface designs.",
+      "Advocate for best practices in usability, acccessibility, and design consistency.",
+    ],
+  },
+  {
+    company: "Sther, Flatley and Doyle",
+    position: "International Quality Officer",
+    startPeriod: "May 2023",
+    endPeriod: "August 2024",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    keys: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+  },
+  {
+    company: "Jacobi, Zemlak and Mayer",
+    position: "National Identity Specialist",
+    startPeriod: "Aug 2020",
+    endPeriod: "May 2024",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    keys: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+  },
+  {
+    company: "Champlin LLC",
+    position: "National Identity Specialist",
+    startPeriod: "Aug 2016",
+    endPeriod: "July 2020",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    keys: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+  },
+  {
+    company: "Keeling - Price",
+    position: "Chief Marketing Administrator",
+    startPeriod: "Aug 2011",
+    endPeriod: "July 2016",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    keys: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+  },
+  {
+    company: "Quitzon - Swift",
+    position: "Global Directive Assistant",
+    startPeriod: "Aug 2000",
+    endPeriod: "Aug 2011",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    keys: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
+  },
+];
+
+const dummyProjects = [
+  {
+    src: "/assets/icon-project-1.webp",
+    title: "Finance Tracker",
+    description: "An App for managing personal finances and budgeting",
+    websiteHref: "/",
+    repositoryHref: "/",
+    docsHref: "/",
+  },
+  {
+    src: "/assets/icon-project-2.webp",
+    title: "Recipe Manager",
+    description: "An App for storing and sharing favorite recipes",
+    websiteHref: "/",
+    repositoryHref: "/",
+    docsHref: "/",
+  },
+  {
+    src: "/assets/icon-project-3.webp",
+    title: "Fitness Tracker",
+    description: "An App for tracking workouts and health goals.",
+    websiteHref: "/",
+    repositoryHref: "/",
+    docsHref: "/",
+  },
+  {
+    src: "/assets/icon-project-4.webp",
+    title: "Travel Planner",
+    description: "An App for planning trips and exploring destinations.",
+    websiteHref: "/",
+    repositoryHref: "/",
+    docsHref: "/",
+  },
+  {
+    src: "/assets/icon-project-5.webp",
+    title: "Task Manager",
+    description: "An App for organizing tasks and increasing productivity.",
+    websiteHref: "/",
+    repositoryHref: "/",
+  },
+];
+
 export default async function Home() {
   const metadatas = (await getContentDocs(6)) as TMetadata[];
+
   return (
     <main className="flex justify-center items-center bg-bodyGray">
       <div className="max-w-[1080px] mt-[5rem] p-16">
@@ -93,89 +194,18 @@ export default async function Home() {
         <section className="space-y-5 pb-20">
           <h3 className="font-semibold">Experience</h3>
           <div>
-            <PresentExperienceCard
-              company="Acme.inc"
-              position="Chief Usability Analyst"
-              period="Aug 2024"
-              description="As the Chief Usability Analyst, leads the charge in optimizing user experiences through intuitive design and data-driven strategies. With a focus on balancing functionality and user satisfaction, they work closely with cross-functional teams to streamline digital interactions, ensuring that every touchpoint is seamless and accessible. Their innovative approach and commitment to continuous improvement drive measurable results, enhancing both user engagement and business outcomes."
-              keys={[
-                "Spearhead usability testing and research to identify pain points and areas for improvement.",
-                "Collaborate with designers, developers, and product managers to implement user-centric solutions.",
-                "Leverage user feedback and analytics to refine workflows and interface designs.",
-                "Advocate for best practices in usability, acccessibility, and design consistency.",
-              ]}
-            />
-            <PastExperienceCard
-              company="Stehr, Flatley, and Doyle"
-              position="International Quality Agent"
-              period="May 2023"
-            />
-            <PastExperienceCard
-              company="Jacobi, Zemlak and Mayer"
-              position="District Quality Officer"
-              period="Aug 2020 - May 2024"
-            />
-            <PastExperienceCard
-              company="Champlin LLC"
-              position="National Identity Specialist"
-              period="Aug 2016 - Jul 2020"
-            />
-            <PastExperienceCard
-              company="Keeling - Price"
-              position="Chief Marketing Administrator"
-              period="Aug 2011 - July 2016"
-            />
-            <PastExperienceCard
-              company="Quitzon - Swift"
-              position="Global Directive Assistant"
-              period="Aug 2000 - Aug 2011"
-            />
+            {dummyExperience.map((experience, index) => {
+              return <ExperienceCard key={index} {...experience} />;
+            })}
           </div>
         </section>
 
         <section className="space-y-5 pb-20">
           <h2 className="text-2xl font-semibold">Projects</h2>
           <div className="grid grid-cols-3 gap-x-5 gap-y-6">
-            <ProjectCard
-              src="/assets/icon-project-1.webp"
-              title="Finance Tracker"
-              description="An App for managing personal finances and budgeting"
-              websiteHref="/"
-              repositoryHref="/"
-              docsHref="/"
-            />
-            <ProjectCard
-              src="/assets/icon-project-2.webp"
-              title="Recipe Manager"
-              description="An App for storing and sharing favorite recipes"
-              websiteHref="/"
-              repositoryHref="/"
-              docsHref="/"
-            />
-            <ProjectCard
-              src="/assets/icon-project-3.webp"
-              title="Fitness Tracker"
-              description="An App for tracking workouts and health goals."
-              websiteHref="/"
-              repositoryHref="/"
-              docsHref="/"
-            />
-            <ProjectCard
-              src="/assets/icon-project-4.webp"
-              title="Travel Planner"
-              description="An App for planning trips and exploring destinations."
-              websiteHref="/"
-              repositoryHref="/"
-              docsHref="/"
-            />
-
-            <ProjectCard
-              src="/assets/icon-project-5.webp"
-              title="Task Manager"
-              description="An App for organizing tasks and increasing productivity."
-              websiteHref="/"
-              repositoryHref="/"
-            />
+            {dummyProjects.map((project, index) => {
+              return <ProjectCard key={index} {...project} />;
+            })}
           </div>
         </section>
 
