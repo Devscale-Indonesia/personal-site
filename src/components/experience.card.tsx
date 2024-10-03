@@ -1,44 +1,56 @@
 import React from "react";
-import { twMerge } from "tailwind-merge";
-import { tv, type VariantProps } from "tailwind-variants";
-
-const style = tv({
-  base: "h-full w-full flex relative ",
-});
-
-type TCard = VariantProps<typeof style>;
-interface Props extends TCard, React.ComponentPropsWithRef<"div"> {}
 
 interface Props {
   company: string;
   position: string;
-  period: string;
-  description?: string;
-  keys?: string[];
+  startPeriod: string;
+  endPeriod?: string;
+  description: string;
+  keys: string[];
 }
 
-export const PresentExperienceCard = (props: Props) => {
+export const PresentTag = () => {
   return (
-    <div {...props} className={twMerge(style({ ...props }), props.className)}>
+    <span className="font-normal text-white uppercase text-sm bg-blackColor rounded-full px-5 flex items-center justify-center">
+      Present
+    </span>
+  );
+};
+
+export const ExperienceCard = (props: Props) => {
+  return (
+    <div className="h-full w-full relative flex">
       <div>
         <div className=" bg-[#DEDEDE] w-[1px] h-full"></div>
-        <div className="absolute w-3 h-3 rounded-full z-10 bg-blackColor -left-1.5 top-0"></div>
+        {props.endPeriod ? (
+          <div className="absolute w-3 h-3 rounded-full z-100 bg-[#DEDEDE] -left-1.5 top-0"></div>
+        ) : (
+          <div className="absolute w-3 h-3 rounded-full z-100 bg-blackColor -left-1.5 top-0"></div>
+        )}
       </div>
-      <div className="flex flex-col gap-3 pl-8 py-3">
-        <div className="flex justify-between items-center">
-          <div className="flex flex-col">
-            <h4 className="flex gap-4 font-semibold">
-              {props.company}{" "}
-              <span className="font-normal text-white uppercase text-sm bg-blackColor rounded-full px-5 flex items-center justify-center">
-                Present
-              </span>
-            </h4>
-            <p className="text-[#979797]">{props.position}</p>
+
+      <div className="h-full w-full relative pb-3">
+        <input
+          type="checkbox"
+          className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+        />
+        <div className="space-y-3 pl-8 py-3">
+          <div className="flex justify-between items-center">
+            <div className="flex flex-col">
+              <h4 className="flex gap-4 font-semibold">
+                {props.company}
+                {props.endPeriod ? null : <PresentTag />}
+              </h4>
+              <p className="text-[#979797]">{props.position}</p>
+            </div>
+            <p className="text-[#979797] uppercase">
+              {props.startPeriod}
+              {props.endPeriod ? ` - ${props.endPeriod}` : null}
+            </p>
           </div>
-          <p className="text-[#979797] uppercase">{props.period}</p>
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-1 overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-none pl-8">
           <p className="text-mediumGray">{props.description}</p>
           <p className="text-mediumGray">Key Responsibilites:</p>
           {props.keys?.map((key, index) => (
@@ -47,25 +59,6 @@ export const PresentExperienceCard = (props: Props) => {
             </p>
           ))}
         </div>
-      </div>
-    </div>
-  );
-};
-
-export const PastExperienceCard = (props: Props) => {
-  return (
-    <div {...props} className={twMerge(style({ ...props }), props.className)}>
-      <div>
-        <div className=" bg-[#DEDEDE] w-[1px] h-full"></div>
-        <div className="absolute w-3 h-3 rounded-full z-10 bg-[#DEDEDE] -left-1.5 top-1"></div>
-      </div>
-
-      <div className="flex justify-between items-center w-full pl-8 py-3">
-        <div className="flex flex-col">
-          <h4 className="font-semibold">{props.company}</h4>
-          <p className="text-[#979797]">{props.position}</p>
-        </div>
-        <p className="text-[#979797] uppercase">{props.period}</p>
       </div>
     </div>
   );
