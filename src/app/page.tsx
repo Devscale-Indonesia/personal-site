@@ -1,19 +1,17 @@
 import { BlogPostGrid } from "@/components/blog-post-grid";
-import { Button } from "@/components/button";
 import type { TMetadata } from "@/components/content-hub";
+import { getContentDocs } from "@/utility/lib/get-content-docs";
+import { Button } from "@/components/button";
 import {
   PastExperienceCard,
   PresentExperienceCard,
 } from "@/components/experience.card";
-import { KeyList } from "@/components/key.list";
 import { ProjectCard } from "@/components/project.card";
-import { DocsTag, RepositoryTag, WebsiteTag } from "@/components/project.tag";
-import { getContentDocs } from "@/utility/lib/get-content-docs";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const metadatas = (await getContentDocs(6)) as TMetadata[];
-
   return (
     <div className="flex justify-center items-center bg-bodyGray">
       <div className="max-w-[1080px] w-full mt-[5rem] p-16">
@@ -81,8 +79,12 @@ export default async function Home() {
                 , this template helps you display your projects with style.
               </h5>
               <div className="flex items-center gap-5">
-                <Button className="space-x-3">
-                  <span className="text-[#24D982]">&#8226;</span>
+                <Button className="flex items-center gap-3">
+                  <div className="relative inline-flex">
+                    <div className="w-2 h-2 bg-greenColor rounded-full"></div>
+                    <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-ping"></div>
+                    <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-pulse"></div>
+                  </div>
                   <span>Let&apos;s Talk With Me</span>
                 </Button>
                 <Button variant="secondary">Find Out More</Button>
@@ -98,12 +100,13 @@ export default async function Home() {
                 position="Chief Usability Analyst"
                 period="Aug 2024"
                 description="As the Chief Usability Analyst, leads the charge in optimizing user experiences through intuitive design and data-driven strategies. With a focus on balancing functionality and user satisfaction, they work closely with cross-functional teams to streamline digital interactions, ensuring that every touchpoint is seamless and accessible. Their innovative approach and commitment to continuous improvement drive measurable results, enhancing both user engagement and business outcomes."
-              >
-                <KeyList desc="Spearhead usability testing and research to identify pain points and areas for improvement." />
-                <KeyList desc="Collaborate with designers, developers, and product managers to implement user-centric solutions." />
-                <KeyList desc="Leverage user feedback and analytics to refine workflows and interface designs." />
-                <KeyList desc="Advocate for best practices in usability, acccessibility, and design consistency." />
-              </PresentExperienceCard>
+                keys={[
+                  "Spearhead usability testing and research to identify pain points and areas for improvement.",
+                  "Collaborate with designers, developers, and product managers to implement user-centric solutions.",
+                  "Leverage user feedback and analytics to refine workflows and interface designs.",
+                  "Advocate for best practices in usability, acccessibility, and design consistency.",
+                ]}
+              />
               <PastExperienceCard
                 company="Stehr, Flatley, and Doyle"
                 position="International Quality Agent"
@@ -132,50 +135,60 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-5">
             <h2 className="text-2xl font-semibold">Projects</h2>
             <div className="grid grid-cols-3 gap-x-5 gap-y-6">
               <ProjectCard
+                src="/assets/icon-project-1.webp"
                 title="Finance Tracker"
                 description="An App for managing personal finances and budgeting"
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
+                src="/assets/icon-project-2.webp"
                 title="Recipe Manager"
                 description="An App for storing and sharing favorite recipes"
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
+                src="/assets/icon-project-3.webp"
                 title="Fitness Tracker"
                 description="An App for tracking workouts and health goals."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
               <ProjectCard
+                src="/assets/icon-project-4.webp"
                 title="Travel Planner"
                 description="An App for planning trips and exploring destinations."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />{" "}
-                <DocsTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+                docsHref="/"
+              />
+
               <ProjectCard
+                src="/assets/icon-project-5.webp"
                 title="Task Manager"
                 description="An App for organizing tasks and increasing productivity."
-              >
-                <WebsiteTag href="" /> <RepositoryTag href="" />
-              </ProjectCard>
+                websiteHref="/"
+                repositoryHref="/"
+              />
             </div>
           </div>
 
-          <div className="flex flex-col gap-9">
+          <div className="flex flex-col gap-5">
             <div className="flex justify-between">
-              <h2 className="text-2xl font-semibold">Blog</h2>
-              <p className="text-mediumGray">See My Another Blog &#10095;</p>
+              <h2 className="text-2xl font-semibold">Projects</h2>
+              <Link href="/blog">
+                <p className="text-mediumGray hover:underline">
+                  See My Another Blog &#10095;
+                </p>
+              </Link>
             </div>
             <BlogPostGrid metadatas={metadatas} />
           </div>

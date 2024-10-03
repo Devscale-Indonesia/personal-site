@@ -19,6 +19,7 @@ const config: Config = {
         grayishBlue: "#F2F6F9",
         silver: "#DEDEDE",
         bodyGray: "#FCFCFC",
+        greenColor: "#24D982",
       },
     },
   },
