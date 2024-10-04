@@ -43,7 +43,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <div className="bg-transparent hover:bg-white rounded-xl p-5 flex flex-col gap-8">
+    <div className="bg-transparent hover:bg-white transition-all duration-200 rounded-xl p-5 flex flex-col gap-8 cursor-pointer">
       <div className="flex flex-col gap-2">
         <Image
           src={props.src}
