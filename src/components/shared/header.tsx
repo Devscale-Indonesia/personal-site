@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+import { ToggleTheme } from "../toggle-theme";
 
 export const Header = () => {
   return (
@@ -15,42 +15,17 @@ export const Header = () => {
         <Link href="/">
           <h5 className="nav">Achievement</h5>
         </Link>
-        <Link href="/">
+        <Link href="/blog">
           <h5 className="nav">Blog</h5>
         </Link>
       </div>
 
       <div className="flex items-center gap-8">
-        <div className="text-gray-600 border-gray-600 border rounded-full px-3 py-2 flex items-center gap-2">
-          <h5>Let&apos;s connect</h5>
-          <Image
-            src={`/assets/arrow.webp`}
-            width={100}
-            height={100}
-            alt="arrow icon"
-            className="w-[15px] h-[15px]"
-          />
-        </div>
-        <div className="flex items-center gap-4 divide-x-2">
-          <div>
-            <Image
-              src={`/assets/darkmode.webp`}
-              width={100}
-              height={100}
-              alt="dark mode icon"
-              className="w-[25px] h-[25px]"
-            />
-          </div>
-          <div className="pl-3">
-            <Image
-              src={`/assets/language.webp`}
-              width={100}
-              height={100}
-              alt="language icon"
-              className="w-[25px] h-[25px]"
-            />
-          </div>
-        </div>
+        <button className="text-gray-600 border-gray-600 border rounded-full px-3 py-1 flex items-center gap-2 hover:bg-black hover:text-white transition-all duration-200 select-none">
+          <p>Let&apos;s connect</p>
+          <p className="text-xl">&#129125;</p>
+        </button>
+        <ToggleTheme />
       </div>
     </header>
   );
