@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { tv, VariantProps } from "tailwind-variants";
 
 const style = tv({
-  base: "border-silver border rounded-md bg-white p-4 h-24 max-w-[300px] h-[220px] rounded-xl flex flex-col justify-between",
+  base: "border-silver border rounded-xl bg-white p-4 h-24 max-w-[300px] h-[220px] flex flex-col justify-between",
 });
 
 type TCard = VariantProps<typeof style>;

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/badge";
-import { BlogCard } from "@/components/blog.card";
+import { BlogCard } from "@/components/blog-card";
 import type { TMetadata } from "@/components/content-hub";
 
 export type BlogPostGridProps = {
