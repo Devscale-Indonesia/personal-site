@@ -56,7 +56,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
         <p className="text-neutral-500">{props.description}</p>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap lg:flex-nowrap">
         <Tag href={props.websiteHref} type="website" />
         <Tag href={props.repositoryHref} type="repository" />
         <Tag href={props.docsHref} type="docs" />

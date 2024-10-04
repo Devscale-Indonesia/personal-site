@@ -26,7 +26,7 @@ export const ExperienceCard = (props: Props) => {
           className="peer absolute top-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer"
         />
         <div className="absolute w-3 h-3 rounded-full z-100 bg-zinc-300 -left-1.5 top-0 group-hover:bg-black peer-checked:bg-black"></div>
-        <div className="flex justify-between items-center space-y-3 pl-8 py-3">
+        <div className="lg:flex lg:justify-between lg:items-center lg:space-y-3 space-y-1 lg:pl-8 pl-4 py-3">
           <div className="space-y-1">
             <h4 className="flex gap-4 font-semibold">
               {props.company}
@@ -40,7 +40,7 @@ export const ExperienceCard = (props: Props) => {
           </p>
         </div>
 
-        <div className="space-y-1 overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-[500px] pl-8">
+        <div className="space-y-1 overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-[800px] lg:pl-8 pl-4">
           <p className="text-neutral-500">{props.description}</p>
           <p className="text-neutral-500">Key Responsibilites:</p>
           {props.keys?.map((key, index) => (

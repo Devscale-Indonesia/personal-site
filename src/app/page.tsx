@@ -115,8 +115,8 @@ export default async function Home() {
 
   return (
     <main className="flex justify-center items-center bg-zinc-50">
-      <div className="max-w-[1080px] mt-[5rem] p-16">
-        <section className="space-y-12 pb-20">
+      <div className="max-w-[1080px] lg:mt-[5rem] mt-[3rem] lg:p-16 py-8">
+        <section className="lg:space-y-12 space-y-8 lg:pb-20 lg:p-0 p-5">
           <h1 className="text-neutral-400/65 font-semibold max-w-[850px]">
             A <span className="text-black">Minimalist</span> Portfolio Template
             for Developer
@@ -129,15 +129,15 @@ export default async function Home() {
                 width={500}
                 height={500}
                 alt="profile icon"
-                className="w-[120px] h-[120px] border border-neutral-500 rounded-full"
+                className="lg:w-[120px] lg:h-[120px] w-[80px] h-[80px] border border-neutral-500 rounded-full"
               />
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col">
+              <div className="flex flex-col lg:gap-2 gap-1">
+                <div className="space-y-1">
                   <h2 className="text-black font-semibold">Roberta Deckow</h2>
                   <p className="text-neutral-500">Chief Usability Analyst</p>
                 </div>
-                <div className="flex gap-2.5">
-                  <div className="social-icon">
+                <div className="flex gap-x-2.5 pt-1.5">
+                  <div className="social-icon p-1.5">
                     <Image
                       src={`/assets/x-icon.webp`}
                       width={500}
@@ -151,16 +151,16 @@ export default async function Home() {
                       width={500}
                       height={500}
                       alt="github icon"
-                      className="scale-125"
+                      className="lg:scale-125"
                     />
                   </div>
-                  <div className="social-icon pb-3">
+                  <div className="social-icon lg:pb-3 pb-2">
                     <Image
                       src={`/assets/stackoverflow-icon.webp`}
                       width={500}
                       height={500}
                       alt="stackoverflow icon"
-                      className="scale-110"
+                      className="lg:scale-110 scale-90"
                     />
                   </div>
                 </div>
@@ -175,12 +175,12 @@ export default async function Home() {
               </span>
               , this template helps you display your projects with style.
             </h5>
-            <div className="flex items-center gap-5">
-              <Button className="flex items-center gap-3">
+            <div className="flex items-center lg:gap-5 gap-2">
+              <Button className="flex items-center lg:gap-3 gap-2">
                 <div className="relative inline-flex">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <div className="w-2 h-2 bg-green-400 rounded-full absolute top-0 left-0 animate-ping"></div>
-                  <div className="w-2 h-2 bg-green-400 rounded-full absolute top-0 left-0 animate-pulse"></div>
+                  <div className="lg:w-2 lg:h-2 h-1.5 w-1.5 bg-green-400 rounded-full"></div>
+                  <div className="lg:w-2 lg:h-2 h-1.5 w-1.5 bg-green-400 rounded-full absolute top-0 left-0 animate-ping"></div>
+                  <div className="lg:w-2 lg:h-2 h-1.5 w-1.5 bg-green-400 rounded-full absolute top-0 left-0 animate-pulse"></div>
                 </div>
                 <span>Let&apos;s Talk With Me</span>
               </Button>
@@ -189,7 +189,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="space-y-5 pb-20">
+        <section className="space-y-5 lg:pb-20 lg:pt-0 lg:px-0 p-5">
           <h3 className="font-semibold">Experience</h3>
           <div>
             {dummyExperience.map((experience, index) => {
@@ -198,18 +198,18 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="space-y-5 pb-20">
+        <section className="space-y-5 lg:pb-20 lg:pt-0 lg:px-0 p-5">
           <h2 className="text-2xl font-semibold">Projects</h2>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-3">
             {dummyProjects.map((project, index) => {
               return <ProjectCard key={index} {...project} />;
             })}
           </div>
         </section>
 
-        <div className="space-y-5">
-          <div className="flex justify-between">
-            <h2 className="text-2xl font-semibold">Projects</h2>
+        <div className="space-y-5 lg:p-0 p-5">
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-semibold">Blog</h2>
             <Link href="/blog">
               <p className="text-neutral-500 hover:underline">
                 See My Another Blog &#10095;

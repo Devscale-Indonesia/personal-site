@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const style = tv({
-  base: "rounded-xl",
+  base: "lg:rounded-xl rounded-lg",
   variants: {
     variant: {
       primary: "bg-black text-white hover:bg-zinc-800 active:bg-zinc-800",
@@ -11,7 +11,7 @@ const style = tv({
     },
     size: {
       sm: "px-3 py-2 text-sm",
-      md: "py-4 px-6 text-base",
+      md: "lg:py-4 lg:px-6 px-2 py-3 lg:text-base text-xs",
     },
   },
   defaultVariants: {
