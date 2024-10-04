@@ -25,10 +25,10 @@ export default async function SlugBlog({ params: { slug } }: SlugBlogProps) {
 
   return (
     <div className="prose prose-slate prose-lg mx-auto">
-      <div className="text-mediumGray text-base flex justify-between items-center mb-5">
+      <div className="text-neutral-500 text-base flex justify-between items-center mb-5">
         <Link
           href="/blog"
-          className="flex items-center justify-center space-x-2 text-mediumGray no-underline"
+          className="flex items-center justify-center space-x-2 text-neutral-500 no-underline hover:underline"
         >
           <svg
             width="8"
