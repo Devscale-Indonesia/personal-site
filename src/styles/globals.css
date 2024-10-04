@@ -25,9 +25,9 @@
 
 @layer components {
   .nav {
-    @apply text-darkGray hover:text-blackColor hover:font-semibold transition-all duration-300;
+    @apply text-gray-600 hover:text-black hover:font-semibold transition-all duration-300;
   }
   .social-icon {
-    @apply w-[28px] h-[28px] rounded-full bg-blackColor p-2 flex items-center justify-center;
+    @apply w-[28px] h-[28px] rounded-full bg-black p-2 flex items-center justify-center;
   }
 }

@@ -114,12 +114,12 @@ export default async function Home() {
   const metadatas = (await getContentDocs(6)) as TMetadata[];
 
   return (
-    <main className="flex justify-center items-center bg-bodyGray">
+    <main className="flex justify-center items-center bg-zinc-50">
       <div className="max-w-[1080px] mt-[5rem] p-16">
         <section className="space-y-12 pb-20">
-          <h1 className="text-lightGray font-semibold max-w-[850px]">
-            A <span className="text-blackColor">Minimalist</span> Portfolio
-            Template for Developer
+          <h1 className="text-neutral-400/65 font-semibold max-w-[850px]">
+            A <span className="text-black">Minimalist</span> Portfolio Template
+            for Developer
           </h1>
 
           <div className="flex flex-col gap-8">
@@ -133,10 +133,8 @@ export default async function Home() {
               />
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col">
-                  <h2 className="text-blackColor font-semibold">
-                    Roberta Deckow
-                  </h2>
-                  <p className="text-mediumGray">Chief Usability Analyst</p>
+                  <h2 className="text-black font-semibold">Roberta Deckow</h2>
+                  <p className="text-neutral-500">Chief Usability Analyst</p>
                 </div>
                 <div className="flex gap-2.5">
                   <div className="social-icon">
@@ -168,7 +166,7 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            <h5 className="text-mediumGray max-w-[600px]">
+            <h5 className="text-neutral-500 max-w-[600px]">
               Simpfolio offers a{" "}
               <span className="font-bold">sleek design for developers</span> to
               showcase their work effectively. Whether you&apos;re a{" "}
@@ -180,9 +178,9 @@ export default async function Home() {
             <div className="flex items-center gap-5">
               <Button className="flex items-center gap-3">
                 <div className="relative inline-flex">
-                  <div className="w-2 h-2 bg-greenColor rounded-full"></div>
-                  <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-ping"></div>
-                  <div className="w-2 h-2 bg-greenColor rounded-full absolute top-0 left-0 animate-pulse"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full absolute top-0 left-0 animate-ping"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full absolute top-0 left-0 animate-pulse"></div>
                 </div>
                 <span>Let&apos;s Talk With Me</span>
               </Button>
@@ -213,7 +211,7 @@ export default async function Home() {
           <div className="flex justify-between">
             <h2 className="text-2xl font-semibold">Projects</h2>
             <Link href="/blog">
-              <p className="text-mediumGray hover:underline">
+              <p className="text-neutral-500 hover:underline">
                 See My Another Blog &#10095;
               </p>
             </Link>

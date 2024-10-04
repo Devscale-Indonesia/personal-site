@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="fixed w-screen top-0 z-50 px-16 py-6 bg-bodyGray flex justify-between items-center">
+    <header className="fixed w-screen top-0 z-50 px-16 py-6 bg-zinc-50 flex justify-between items-center">
       <div className="flex items-center gap-16">
         <Link href="/">
-          <h4 className="text-blackColor font-bold ">SimpFolio</h4>
+          <h4 className="text-black font-bold ">SimpFolio</h4>
         </Link>
         <Link href="/">
           <h5 className="nav">About</h5>
@@ -21,7 +21,7 @@ export const Header = () => {
       </div>
 
       <div className="flex items-center gap-8">
-        <div className="text-darkGray border-darkGray border rounded-full px-3 py-2 flex items-center gap-2">
+        <div className="text-gray-600 border-gray-600 border rounded-full px-3 py-2 flex items-center gap-2">
           <h5>Let&apos;s connect</h5>
           <Image
             src={`/assets/arrow.webp`}
