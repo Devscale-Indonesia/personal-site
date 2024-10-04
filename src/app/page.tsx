@@ -200,7 +200,7 @@ export default async function Home() {
 
         <section className="space-y-5 pb-20">
           <h2 className="text-2xl font-semibold">Projects</h2>
-          <div className="grid grid-cols-3 gap-x-5 gap-y-6">
+          <div className="grid grid-cols-3 gap-6">
             {dummyProjects.map((project, index) => {
               return <ProjectCard key={index} {...project} />;
             })}
