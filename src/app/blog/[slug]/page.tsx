@@ -1,8 +1,6 @@
 import { join } from "node:path";
 import { cwd } from "node:process";
 
-import "@/styles/code-line-number.css";
-
 import { readContent } from "@/utils/read-content";
 import Link from "next/link";
 import { getDoc } from "@/libs/get-doc";
