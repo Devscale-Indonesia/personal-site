@@ -4,7 +4,7 @@
 
 ### Customize Components and Design
 
-#### Custom MDX Components
+#### Customize MDX Components
 
 We use [`next-mdx-remote/rsc`](https://github.com/hashicorp/next-mdx-remote) to render Markdown.
 This means you could replace HTML tags by custom component in `custom-mdx-component.tsx` at the `src/` directory. You can find the lists of HTML tags produce by MDX compiler in MDXJS [Table of components](https://mdxjs.com/table-of-components/)
@@ -18,10 +18,10 @@ return {
 };
 ```
 
-#### Custom Syntax Highlighter
+#### Customize Syntax Highlighter
 
 [`react-syntax-highlighter`](https://github.com/react-syntax-highlighter/react-syntax-highlighter) is used for syntax highlighting by default.
-You can change the theme by assigning to `const theme` variable in `custom-mdx-component.tsx`
+You can change the theme by assgin `react-syntax-highlighter` theme to `const theme` variable in `custom-mdx-component.tsx`
 
 ```tsx
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -34,7 +34,7 @@ And if you want to change the syntax highlighting library, you could assign your
 ```tsx
 return {
   pre: (props) => {
-    // use getSyntax functtion to extract string of code syntax and the language
+    // use getSyntax function to extract string of syntax code and language
     const { code, lang } = getSyntax(props.children);
     return (
       <SyntaxHighlighter
