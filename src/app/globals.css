@@ -7,6 +7,19 @@
   --foreground: #171717;
 }
 
+@layer base {
+  *:focus-visible {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
