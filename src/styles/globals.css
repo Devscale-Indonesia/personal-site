@@ -30,4 +30,7 @@
   .social-icon {
     @apply w-[28px] h-[28px] rounded-full bg-black p-2 flex items-center justify-center;
   }
+  .mobile-nav {
+    @apply fixed top-0 w-[100%] bg-zinc-50 z-10;
+  }
 }
