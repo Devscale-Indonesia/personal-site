@@ -129,7 +129,7 @@ export default async function Home() {
                 width={500}
                 height={500}
                 alt="profile icon"
-                className="w-[120px] h-[120px] border rounded-full"
+                className="w-[120px] h-[120px] border border-neutral-500 rounded-full"
               />
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col">
