@@ -25,10 +25,10 @@ export default async function SlugBlog({ params: { slug } }: SlugBlogProps) {
 
   return (
     <div className="prose prose-slate prose-lg mx-auto">
-      <div className="text-neutral-500 text-base flex justify-between items-center mb-5">
+      <div className="text-neutral-500 text-base flex lg:flex-row flex-col gap-3 lg:justify-between lg:items-center mb-5">
         <Link
           href="/blog"
-          className="flex items-center justify-center space-x-2 text-neutral-500 no-underline hover:underline"
+          className="flex items-center gap-1 text-neutral-500 no-underline hover:underline"
         >
           <svg
             width="8"
@@ -47,10 +47,11 @@ export default async function SlugBlog({ params: { slug } }: SlugBlogProps) {
           </svg>{" "}
           <span>Return to Blog</span>
         </Link>
-        <div className="space-x-[8px]">
+        <div className="flex lg:flex-row flex-col gap-1 lg:gap-3">
           <span>{estimateReadingTime}</span>
-          <span> &#x2022;</span>
-          <span> {frontmatter.date}</span>
+          <span className="lg:space-x-3 space-x-1">
+            <span>&#x2022;</span> <span>{frontmatter.date}</span>
+          </span>
         </div>
       </div>
       {content}
