@@ -27,7 +27,7 @@ export const ContentHub = ({ metadatas }: ContentHubProps) => {
 
   return (
     <>
-      <div className="flex flex-wrap w-full gap-3 mb-12">
+      <div className="flex flex-wrap w-full gap-3 lg:pb-12 pb-8">
         {tags.map((tag) => (
           <button
             key={tag}
