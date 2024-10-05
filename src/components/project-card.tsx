@@ -43,7 +43,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <div className="bg-transparent hover:bg-white transition-all duration-200 rounded-xl p-5 flex flex-col gap-8 cursor-pointer">
+    <div className="bg-transparent hover:bg-white transition-all duration-200 rounded-xl p-5 flex flex-col gap-8 cursor-pointer group">
       <div className="flex flex-col gap-2">
         <Image
           src={props.src}
@@ -52,8 +52,12 @@ export const ProjectCard = (props: ProjectCardProps) => {
           alt="project icon"
           className="w-[60px] h-[60px]"
         />
-        <h4 className="font-semibold">{props.title}</h4>
-        <p className="text-neutral-500">{props.description}</p>
+        <h4 className="font-semibold dark:text-white text-black dark:group-hover:text-black">
+          {props.title}
+        </h4>
+        <p className="text-neutral-500 dark:text-neutral-400">
+          {props.description}
+        </p>
       </div>
 
       <div className="flex gap-2 flex-wrap lg:flex-nowrap">
