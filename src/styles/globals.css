@@ -25,10 +25,10 @@
 
 @layer components {
   .nav {
-    @apply text-gray-600 hover:text-black hover:font-semibold transition-all duration-300;
+    @apply text-gray-600 hover:text-black dark:text-neutral-500 dark:hover:text-white dark:hover:font-normal transition-all duration-300;
   }
   .social-icon {
-    @apply lg:w-[28px] lg:h-[28px] w-[22px] h-[22px] rounded-full bg-black lg:p-2 p-1 flex items-center justify-center;
+    @apply lg:w-[28px] lg:h-[28px] w-[22px] h-[22px] rounded-full bg-black hover:scale-110 transition duration-200 lg:p-2 p-1 flex items-center justify-center;
   }
   .mobile-nav {
     @apply fixed top-0 w-[100%] bg-zinc-50 z-10;
