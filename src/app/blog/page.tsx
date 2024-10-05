@@ -6,7 +6,7 @@ export default async function Blog() {
 
   return (
     <>
-      <h1 className="text-4xl mb-3 font-semibold">Blog</h1>
+      <h1 className="text-4xl mb-3 font-semibold dark:text-white">Blog</h1>
       <p className="text-neutral-500 lg:mb-12 mb-8">
         Stay updated with my insights on industry trends, personal experiences,
         and more.
