@@ -18,7 +18,7 @@ export const Tag = ({ href, type }: TagProps) => {
 
   return (
     <Link href={href} target="_blank">
-      <div className="flex items-center gap-1 bg-blackColor text-white rounded-md w-fit px-2 py-1.5">
+      <div className="flex items-center gap-1 bg-black text-white rounded-md w-fit px-2 py-1.5">
         <Image
           src={tagData[type].src}
           width={300}
@@ -43,7 +43,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <div className="bg-transparent p-5 flex flex-col gap-8">
+    <div className="bg-transparent hover:bg-white transition-all duration-200 rounded-xl p-5 flex flex-col gap-8 cursor-pointer group">
       <div className="flex flex-col gap-2">
         <Image
           src={props.src}
@@ -52,11 +52,15 @@ export const ProjectCard = (props: ProjectCardProps) => {
           alt="project icon"
           className="w-[60px] h-[60px]"
         />
-        <h4 className="font-semibold">{props.title}</h4>
-        <p className="text-mediumGray">{props.description}</p>
+        <h4 className="font-semibold dark:text-white text-black dark:group-hover:text-black">
+          {props.title}
+        </h4>
+        <p className="text-neutral-500 dark:text-neutral-400">
+          {props.description}
+        </p>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap lg:flex-nowrap">
         <Tag href={props.websiteHref} type="website" />
         <Tag href={props.repositoryHref} type="repository" />
         <Tag href={props.docsHref} type="docs" />

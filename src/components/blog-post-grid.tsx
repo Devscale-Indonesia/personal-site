@@ -1,5 +1,5 @@
 import { Badge } from "@/components/badge";
-import { BlogCard } from "@/components/blog.card";
+import { BlogCard } from "@/components/blog-card";
 import type { TMetadata } from "@/components/content-hub";
 
 export type BlogPostGridProps = {
@@ -8,7 +8,7 @@ export type BlogPostGridProps = {
 
 export const BlogPostGrid = (props: BlogPostGridProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
       {props.metadatas.map((metadata) => {
         const { title } = metadata;
         const tagCollection = metadata.tags.split(",");
