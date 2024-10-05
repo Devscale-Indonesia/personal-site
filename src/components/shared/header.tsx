@@ -19,10 +19,10 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed w-screen top-0 z-50 lg:px-16 lg:py-6 p-5 bg-zinc-50 flex justify-between items-center flex-wrap">
+      <header className="fixed w-screen top-0 z-50 lg:px-16 lg:py-6 p-5 bg-zinc-50 dark:bg-zinc-800 flex justify-between items-center flex-wrap">
         <div className="hidden lg:flex lg:items-center lg:gap-16">
           <Link href="/">
-            <h4 className="text-black font-bold ">SimpFolio</h4>
+            <h4 className="text-black font-bold dark:text-white">SimpFolio</h4>
           </Link>
           <Link href="/">
             <h5 className="nav">About</h5>
@@ -36,7 +36,7 @@ export const Header = () => {
         </div>
 
         <div className="hidden lg:flex lg:items-center lg:gap-8">
-          <button className="text-gray-600 border-gray-600 border rounded-full px-3 py-1 hover:bg-black hover:text-white transition-all duration-200 select-none">
+          <button className="text-gray-600 border-gray-600 dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-black border rounded-full px-3 py-1 hover:bg-black hover:text-white transition-all duration-200 select-none">
             <p>
               Let&apos;s connect <span className="text-xl">&#129125;</span>
             </p>
