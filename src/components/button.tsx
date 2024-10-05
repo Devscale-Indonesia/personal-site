@@ -5,7 +5,8 @@ const style = tv({
   base: "lg:rounded-xl rounded-lg",
   variants: {
     variant: {
-      primary: "bg-black text-white hover:bg-zinc-800 active:bg-zinc-800",
+      primary:
+        "bg-black text-white hover:bg-zinc-800 active:bg-zinc-800 dark:hover:bg-black/60 active:bg-black-60",
       secondary:
         "bg-transparent border border-neutral-500 text-neutral-500 hover:bg-zinc-100 active:bg-zinc-100",
     },
