@@ -114,12 +114,12 @@ export default async function Home() {
   const metadatas = (await getContentDocs(6)) as TMetadata[];
 
   return (
-    <main className="flex justify-center items-center bg-zinc-50">
+    <main className="flex justify-center items-center bg-zinc-50 dark:bg-zinc-800">
       <div className="max-w-[1080px] lg:mt-[5rem] mt-[3rem] lg:p-16 py-8">
         <section className="lg:space-y-12 space-y-8 lg:pb-20 lg:p-0 p-5">
-          <h1 className="text-neutral-400/65 font-semibold max-w-[850px]">
-            A <span className="text-black">Minimalist</span> Portfolio Template
-            for Developer
+          <h1 className="text-neutral-400/65 dark:text-neutral-500 font-semibold max-w-[850px]">
+            A <span className="text-black dark:text-white">Minimalist</span>{" "}
+            Portfolio Template for Developer
           </h1>
 
           <div className="flex flex-col gap-8">
@@ -129,23 +129,25 @@ export default async function Home() {
                 width={500}
                 height={500}
                 alt="profile icon"
-                className="lg:w-[120px] lg:h-[120px] w-[80px] h-[80px] border border-neutral-500 rounded-full"
+                className="lg:w-[120px] lg:h-[120px] w-[80px] h-[80px] border border-neutral-500 dark:border-white dark:bg-white rounded-full"
               />
               <div className="flex flex-col lg:gap-2 gap-1">
                 <div className="space-y-1">
-                  <h2 className="text-black font-semibold">Roberta Deckow</h2>
-                  <p className="text-neutral-500">Chief Usability Analyst</p>
+                  <h2 className="text-black dark:text-white font-semibold">
+                    Roberta Deckow
+                  </h2>
+                  <p className="text-neutral-500 ">Chief Usability Analyst</p>
                 </div>
                 <div className="flex gap-x-2.5 pt-1.5">
-                  <div className="social-icon p-1.5">
+                  <Link href="" target="_blank" className="social-icon p-1.5">
                     <Image
                       src={`/assets/x-icon.webp`}
                       width={500}
                       height={500}
                       alt="x icon"
                     />
-                  </div>
-                  <div className="social-icon">
+                  </Link>
+                  <Link href="" target="_blank" className="social-icon">
                     <Image
                       src={`/assets/github-icon.webp`}
                       width={500}
@@ -153,8 +155,12 @@ export default async function Home() {
                       alt="github icon"
                       className="lg:scale-125"
                     />
-                  </div>
-                  <div className="social-icon lg:pb-3 pb-2">
+                  </Link>
+                  <Link
+                    href=""
+                    target="_blank"
+                    className="social-icon lg:pb-3 pb-2"
+                  >
                     <Image
                       src={`/assets/stackoverflow-icon.webp`}
                       width={500}
@@ -162,15 +168,17 @@ export default async function Home() {
                       alt="stackoverflow icon"
                       className="lg:scale-110 scale-90"
                     />
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
-            <h5 className="text-neutral-500 max-w-[600px]">
+            <h5 className="text-neutral-500 dark:text-neutral-200 tracking-wide max-w-[600px]">
               Simpfolio offers a{" "}
-              <span className="font-bold">sleek design for developers</span> to
-              showcase their work effectively. Whether you&apos;re a{" "}
-              <span className="font-bold">
+              <span className="font-bold dark:font-semibold">
+                sleek design for developers
+              </span>{" "}
+              to showcase their work effectively. Whether you&apos;re a{" "}
+              <span className="font-bold dark:font-semibold">
                 coder, designer, or tech enthusiast
               </span>
               , this template helps you display your projects with style.
@@ -190,7 +198,7 @@ export default async function Home() {
         </section>
 
         <section className="space-y-5 lg:pb-20 lg:pt-0 lg:px-0 p-5">
-          <h3 className="font-semibold">Experience</h3>
+          <h3 className="font-semibold dark:text-white">Experience</h3>
           <div>
             {dummyExperience.map((experience, index) => {
               return <ExperienceCard key={index} {...experience} />;
@@ -199,7 +207,7 @@ export default async function Home() {
         </section>
 
         <section className="space-y-5 lg:pb-20 lg:pt-0 lg:px-0 p-5">
-          <h2 className="text-2xl font-semibold">Projects</h2>
+          <h2 className="text-2xl font-semibold dark:text-white">Projects</h2>
           <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-6 gap-3">
             {dummyProjects.map((project, index) => {
               return <ProjectCard key={index} {...project} />;
@@ -207,9 +215,9 @@ export default async function Home() {
           </div>
         </section>
 
-        <div className="space-y-5 lg:p-0 p-5">
+        <section className="space-y-5 lg:p-0 p-5">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-semibold">Blog</h2>
+            <h2 className="text-2xl font-semibold dark:text-white">Blog</h2>
             <Link href="/blog">
               <p className="text-neutral-500 hover:underline">
                 See My Another Blog &#10095;
@@ -217,7 +225,7 @@ export default async function Home() {
             </Link>
           </div>
           <BlogPostGrid metadatas={metadatas} />
-        </div>
+        </section>
       </div>
     </main>
   );
