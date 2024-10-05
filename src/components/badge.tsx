@@ -6,7 +6,8 @@ const style = tv({
   base: "rounded-md text-xs inline-block",
   variants: {
     variant: {
-      inactive: "bg-gray-200/60 text-gray-600",
+      inactive:
+        "bg-gray-200/60 text-gray-600 dark:bg-zinc-600 dark:text-neutral-300",
       active: "bg-black text-white",
     },
     size: {
