@@ -46,7 +46,7 @@ export const Header = () => {
 
         <div className="lg:hidden flex justify-between items-center w-full">
           <Link href="/">
-            <h4 className="text-black font-bold ">SimpFolio</h4>
+            <h4 className="text-black font-bold dark:text-white">SimpFolio</h4>
           </Link>
           <div className="flex gap-4 items-center">
             <ToggleTheme />
@@ -57,7 +57,7 @@ export const Header = () => {
                   width="32"
                   height="32"
                   viewBox="0 0 24 24"
-                  className="h-[25px] w-[25px] fill-gray-600"
+                  className="h-[25px] w-[25px] fill-gray-600 dark:fill-white"
                 >
                   <path d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z" />
                 </svg>
@@ -67,7 +67,7 @@ export const Header = () => {
                   width="32"
                   height="32"
                   viewBox="0 0 14 14"
-                  className="h-[20px] w-[20px] fill-gray-600"
+                  className="h-[20px] w-[20px] fill-gray-600 dark:fill-white"
                 >
                   <path
                     stroke="currentColor"
@@ -83,7 +83,7 @@ export const Header = () => {
       </header>
 
       {isOpen && (
-        <div className="flex basis-full flex-col gap-3 pt-20 pb-3 mobile-nav border-b border-black">
+        <div className="flex basis-full flex-col gap-3 pt-20 pb-3 mobile-nav border-b border-black dark:border-white dark:bg-zinc-800 bg-zinc-50">
           <Link href="/">
             <h5 className="nav text-sm text-center">About</h5>
           </Link>
