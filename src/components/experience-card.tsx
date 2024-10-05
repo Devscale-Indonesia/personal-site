@@ -19,16 +19,16 @@ export const PresentTag = () => {
 
 export const ExperienceCard = (props: Props) => {
   return (
-    <div className="h-full w-full border border-l border-t-0 border-b-0 border-r-0 border-zinc-300 group">
+    <div className="h-full w-full border border-l border-t-0 border-b-0 border-r-0 border-zinc-300 dark:border-zinc-600 group">
       <div className="relative pb-3">
         <input
           type="checkbox"
           className="peer absolute top-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer"
         />
-        <div className="absolute w-3 h-3 rounded-full z-100 bg-zinc-300 -left-1.5 top-0 group-hover:bg-black peer-checked:bg-black"></div>
+        <div className="absolute w-3 h-3 rounded-full z-100 bg-zinc-300 dark:bg-zinc-600 -left-1.5 top-0 group-hover:bg-black peer-checked:bg-black dark:group-hover:bg-white dark:peer-checked:bg-white"></div>
         <div className="lg:flex lg:justify-between lg:items-center lg:space-y-3 space-y-1 lg:pl-8 pl-4 py-3">
           <div className="space-y-1">
-            <h4 className="flex gap-4 font-semibold">
+            <h4 className="flex gap-4 font-semibold dark:text-white">
               {props.company}
               {props.endPeriod ? null : <PresentTag />}
             </h4>
